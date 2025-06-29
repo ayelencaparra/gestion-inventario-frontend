@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+.container-stockpage{
+    min-height: 100vh;
+    width: 100%;
+}
+.container-sections-stockpage{
+    flex-direction: column;
+}
+.container-subindex-stockpage{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 35px;
+    width: 20%;
+    box-sizing: content-box;
+    border-right: solid 1px black;
+}
+.container-subindex-stockpage img{
+     position: absolute;
+    right: 20px;
+    top: 30px;
+    background-color: white;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin: 0;
+}
+.container-subindex-stockpage img:hover{
+    height: 70px;
+    width: 70px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 50%; 
+    transition: box-shadow 0.2s ease; 
+}
+.container-subindex-stockpage li{
+    list-style: none;
+    cursor:default;
+    text-decoration: underline;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.container-subindex-stockpage li:not(:first-child):hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 7px;
+    cursor: pointer;
+}
+
+
+.container-subindex-stockpage li:not(:first-child) {
+    text-decoration: none;
+    padding-left: 35px;
+    font-size: 20px;
+    font-weight: 400;
+}
+.container-subindex-stockpage ul{
+    padding: 0;
+}
+
+.container-index-stockpage ul{
+    padding: 0;
+}
+
+.container-elements-stockpage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 90px;
+    align-items: center;
+    gap: 50px;
+    width: 80%;
+}
+.container-elements-stockpage button{
+    font-size: 20px;
+    width: 250px;
+    color: white;
+    background-color: #0197CF;
+    border-radius: 0;
+}
+.container-elements-stockpage button:hover{
+    background-color: white;
+    color: #0197CF;
+    border: solid 2px #0197CF;
+    border-radius: 0;
+}
+.container-elements-stockpage input{
+    width: 500px;
+    height: 40px;
+    border: solid #00000027 ;
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.container-table-stockpage{
+    width: 600px;
+}
+.container-table-stockpage td, .container-table-stockpage th{
+    background-color: #A9CEFF;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    border: solid #EAECEE;
+}
+.drop-down-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background-color: #0197CF;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: solid 2px black;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    margin-right: 5px;
+}
+.stock-recomendation{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 25px;
+    font-weight: 500;
+}
+.stock-recomendation .central-li{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+}
+.drop-down-button {
+    text-decoration: none !important;
+}
+.container-sections-home{
+    display: row;
+}
+.stock-recomendation .central-li:hover .li-text {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 7px;
+    cursor: pointer;
+}
+
+.stock-recomendation .central-li:hover .drop-down-button{
+    background-color: #3ba9d1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.2s ease;
+    cursor: pointer;
+}
+.content-li{
+    display: flex;
+    flex-direction: column;
+    margin-left: 45px;
+    margin-top: 20px;
+    width: 1000px;
+}
+.content-li table th, .content-li table td{
+    text-align: center;
+    background-color: #A9CEFF;
+    border: solid #EAECEE;
+}
+@media (max-width: 1024px) {
+    .container-recomendations{
+        width: 100%;
+    }
+  .container-subindex-stockpage {
+    width: 100%;
+    justify-content: space-around;
+    border-right: none;
+    border-bottom: solid 1px black;
+    padding-bottom: 20px;
+  }
+  .container-subindex-stockpage ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .container-subindex-stockpage li{
+    padding: 0 !important;
+    margin: 0!important;
+    font-size: 16px!important;
+    padding-left: 0!important;
+    padding-bottom:10px;
+  }
+
+  .container-elements-stockpage {
+    width: 100%;
+    padding-top: 40px;
+  }
+  .content-li {
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    max-width: 100%!important;
+    overflow: hidden!important;
+  }
+  .content-li table td, .content-li table th{
+    max-width: 67px;
+    overflow: hidden!important;
+  }
+}
+@media (max-width: 768px) {
+  .container-table-stockpage,
+  .container-elements-stockpage input {
+    width: 90%;
+  }
+
+  .container-elements-stockpage button {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .drop-down-button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .stock-recomendation {
+    font-size: 18px;
+  }
+   .stock-recomendation li{
+     display: flex;
+     flex-direction: column;
+     max-width: 100%;
+   }
+
+  .content-li {
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .content-li table td, .content-li table th{
+    font-size: 16px;
+    padding: 5px;
+  }
+    .container-table td,
+    .container-table th {
+        max-width: 50px; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .container-table .td-expandible {
+    max-width: none !important;
+    white-space: normal;
+    overflow: visible;
+    }
+}
+@media (max-width: 480px) {
+  .stock-recomendation .central-li {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .container-table-stockpage {
+    overflow-x: auto;
+    display: block;
+  }
+
+  .container-elements-stockpage input {
+    width: 100%;
+  }
+
+  .container-subindex-stockpage img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .container-subindex-stockpage li {
+    font-size: 18px;
+  }
+  .stock-recomendation{
+    padding: 0!important;
+  }
+  .stock-info{
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    padding: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+    .container-section-stockpage{
+        flex-direction: column;
+    }
+}

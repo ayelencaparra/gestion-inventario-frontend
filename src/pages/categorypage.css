@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+.container-categorypage{
+    min-height: 100vh;
+    width: 100%;
+}
+
+.container-subindex-categorypage{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 35px;
+    width: 20%;
+    box-sizing: content-box;
+    border-right: solid 1px black;
+}
+
+.container-subindex-categorypage img{
+    height: 60px;
+    width: 60px;
+    margin-bottom: 50px;
+}
+
+.container-subindex-categorypage img:hover{
+    height: 70px;
+    width: 70px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 50%; 
+    transition: box-shadow 0.2s ease; 
+}
+
+.container-subindex-categorypage li{
+    list-style: none;
+    cursor:default;
+    text-decoration: underline;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.container-subindex-categorypage li:not(:first-child):hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 7px;
+    cursor: pointer;
+}
+
+
+.container-subindex-categorypage li:not(:first-child) {
+    text-decoration: none;
+    padding-left: 35px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.container-subindex-categorypage ul{
+    padding: 0;
+}
+
+.container-index-categorypage ul{
+    padding: 0;
+}
+
+.container-elements-categorypage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 90px;
+    align-items: center;
+    gap: 50px;
+    width: 80%;
+}
+
+.container-elements-categorypage button{
+    font-size: 20px;
+    width: 100%;
+    color: white;
+    background-color: #0197CF;
+    border-radius: 0;
+}
+
+.container-elements-categorypage button:hover{
+    background-color: white;
+    color: #0197CF;
+    border: solid 2px #0197CF;
+    border-radius: 0;
+}
+
+.container-elements-categorypage input{
+    width: 500px;
+    height: 40px;
+    border: solid #00000027 ;
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.container-table-categor{
+    width: 600px;
+}
+
+.container-table-category td, .container-table-category th{
+    background-color: #A9CEFF;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    border: solid #EAECEE;
+}
+
+.container-search-buttons label{
+    padding-bottom: 10px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#search-buttons-category p{
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom: 10px;
+
+}
+
+#search-buttons-category{
+    margin-left: 50px;
+    margin-top: 80px;
+}
+
+#search-buttons-category button{
+    width: 170px;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    height: 56px;
+    padding: 0;
+}
+#search-buttons-category input{
+    font-size: 20px;
+    height: 56px;
+}
+
+#form-category-creator label{
+    font-size: 20px;
+}
+
+#form-category-creator input{
+    height: 56px;
+
+}
+
+#form-category-creator button{
+    border-radius: 25px;
+}
+
+#eliminator-button-cp{
+    background-color: red;
+}
+
+#eliminator-button-cp:hover{
+    background-color: white;
+    color: red;
+    border-color: red;
+}
+@media (max-width: 768px) {
+  .container-section-category {
+    flex-direction: column !important;
+  }
+
+  .container-subindex-categorypage {
+    width: 100%;
+    border-right: none;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 20px;
+  }
+
+  .container-elements-categorypage {
+    width: 100%;
+    padding-top: 30px;
+    align-items: center;
+  }
+
+  #search-buttons-category {
+    margin-left: 0;
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-table-category {
+    overflow-x: auto;
+    display: block;
+    width: 100%;
+  }
+
+  .container-table-category table {
+    width: 900px; /* o auto, según necesidad */
+  }
+
+  .container-elements-categorypage input {
+    width: 90%;
+  }
+
+  .container-elements-categorypage button {
+    width: 90%;
+  }
+  .container-section-elements-categorypage {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .container-section-table-category{
+    max-width: 100%;
+    height: 400px;
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  #search-buttons-category{
+    margin-top: 0;
+    height: 300px;
+    justify-content: start;
+    align-items: start;
+    padding-left: 10px;
+  }
+  #search-buttons-category h2{
+    margin-top: 10px;
+    padding-left: 5px;
+  }
+  .container-categorycreator{
+    width: 100%;
+  }
+}

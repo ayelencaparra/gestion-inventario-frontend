@@ -1,0 +1,93 @@
+@import "tailwindcss";
+.container-login{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+}
+
+.container-elements-login{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0;
+    color: black;
+}
+
+.container-elements-login h1{
+    font-size: 30px;
+    width: 360px;
+}
+
+.container-elements-login p{
+    width: 360px;
+    font-size: 14px;
+}
+
+.form-login{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 360px;
+}
+
+.form-login input{
+    border: solid #00000027;
+    border-radius: 10px;
+    height: 40px;
+    box-sizing: content-box;
+    padding-left: 10px;
+}
+.form-login button{
+    border: 0;
+    padding: 5px;
+    background-color: #0197CF;
+    color: white;
+    height: 40px;
+    margin-top: 20px;
+    box-sizing: content-box;
+}
+.form-login button:hover{
+    background-color: #0198cfd2;
+    font-weight: 700;
+    padding: 6px;
+}
+.container-img-login{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+#img-login{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+}
+#signup-button:hover{
+    background-color: #f6fbff!important;
+    font-weight: 700!important;
+}
+
+@media (max-width: 480px) {
+    .container-img-login{
+        height: 0;
+        width: 0;
+        overflow: hidden;
+    }
+    .container-elements-login{
+        min-height: 100vh;
+        justify-content: center;
+    }
+
+}

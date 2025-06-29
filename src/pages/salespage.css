@@ -1,0 +1,316 @@
+@import "tailwindcss";
+
+.container-salespage{
+    min-height: 100vh;
+    width: 100%;
+}
+.container-subindex-salespage{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 35px;
+    width: 20%;
+    box-sizing: content-box;
+    border-right: solid 1px black;
+}
+.container-subindex-salespage img{
+    height: 60px;
+    width: 60px;
+    margin-bottom: 50px;
+}
+.container-subindex-salespage img:hover{
+    height: 70px;
+    width: 70px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 50%; 
+    transition: box-shadow 0.2s ease; 
+}
+.container-subindex-salespage li{
+    list-style: none;
+    cursor:default;
+    text-decoration: underline;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.container-subindex-salespage li:not(:first-child):hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 7px;
+    cursor: pointer;
+}
+
+
+.container-subindex-salespage li:not(:first-child) {
+    text-decoration: none;
+    padding-left: 35px;
+    font-size: 20px;
+    font-weight: 400;
+}
+.container-subindex-salespage ul{
+    padding: 0;
+}
+
+.container-index-salespage ul{
+    padding: 0;
+}
+
+.container-elements-salespage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 90px;
+    align-items: start;
+    gap: 50px;
+    width: 80%;
+}
+.container-elements-salespage button{
+    font-size: 20px;
+    width: 100%;
+    color: white;
+    background-color: #0197CF;
+    border-radius: 0;
+}
+.container-elements-salespage button:hover{
+    background-color: white;
+    color: #0197CF;
+    border: solid 2px #0197CF;
+    border-radius: 0;
+}
+.container-elements-salespage input{
+    width: 500px;
+    height: 40px;
+    border: solid #00000027 ;
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.container-table-sales{
+    width: 600px;
+}
+.container-table-sales td, .container-table-sales th{
+    background-color: #A9CEFF;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    border: solid #EAECEE;
+}
+.container-search-buttons label{
+    padding-bottom: 10px;
+    font-weight: 500;
+    font-size: 20px;
+}
+#eliminator-button{
+    background-color: red;
+}
+#eliminator-button:hover{
+    background-color: white;
+    color: red;
+    border-color: red;
+}
+
+@media (max-width: 1024px) {
+  /* En tablets y pantallas medias */
+
+  .container-section-sales {
+    flex-direction: column;
+  }
+
+  .container-subindex-salespage {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 15px;
+    border-right: none;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+  }
+  .container-subindex-salespage ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .container-subindex-salespage img {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    background-color: white;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin: 0;
+  }
+
+  .container-subindex-salespage li {
+    padding: 0 !important;
+    margin: 0!important;
+    font-size: 16px!important;
+    padding-left: 0!important;
+    padding-bottom:10px;
+  }
+
+  .container-subindex-salespage li:not(:first-child) {
+    font-size: 16px;
+  }
+
+  .container-elements-salespage {
+    width: 100%;
+    padding: 0;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column!important;
+    align-items: center;
+
+    gap: 30px;
+  }
+
+  .container-table-sales {
+    width: 100%;
+  }
+
+  .container-table-sales td,
+  .container-table-sales th {
+    font-size: 16px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .container-elements-salespage input {
+    width: 100%;
+    max-width: 300px;
+    
+  }
+  .container-elements-salespage{
+    padding-left: 0!important;
+  }
+  .container-search-buttons{
+    align-items: center;
+    justify-content: center;
+    min-width: 80%;
+    max-width: 100%;
+    height: 500px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    gap: 15px;
+  }
+  .container-search-buttons div{
+    min-width: 80%;
+    max-width: 100%;
+  }
+  .container-search-buttons input{
+    width: 100%;
+  }
+  .container-salecreator{
+    flex-direction: column;
+  }
+  .container-totalamount p{
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 5px;
+    max-width: 300px;
+  }
+  .container-table-sales td, .container-table-sales th{
+    max-width: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+  }
+  .container-section-table-sales{
+    max-width: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    height: 360px;
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .container-sale-eliminator{
+     max-width: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    height: 360px;
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 640px) {
+  /* En móviles */
+
+  .container-subindex-salespage {
+    flex-wrap: wrap;
+    padding-top: 10px;
+  }
+
+  .container-subindex-salespage li {
+    font-size: 14px;
+    padding-left: 0;
+  }
+
+  .container-subindex-salespage li:not(:first-child) {
+    font-size: 14px;
+  }
+
+  .container-subindex-salespage img {
+    height: 30px;
+    width: 30px;
+    margin-bottom: 10px;
+  }
+
+  .container-elements-salespage button {
+    display: flex;
+    flex-direction: column!important;
+    font-size: 16px;
+  }
+
+  .container-elements-salespage input {
+    max-width: 100%;
+  }
+.container-table-sales .td-expandible {
+  max-width: none !important;
+  white-space: normal!important;
+  overflow: visible !important;
+}
+.container-saledatailpopup{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+.container-salecreator{
+    max-width: 100%;
+    overflow-x: auto; 
+}
+.container-detailpoductssold{
+    max-width: 420px;
+    overflow: auto;
+ height: auto;
+}
+.container-table-sales{
+    max-width: 420px;
+        overflow: hidden;
+    height: auto;
+}
+.container-table-sales td, .container-table-sales th{
+    max-width: none;
+    overflow: hidden;
+}
+#button-saledatailpopup{
+    width: 200px;
+}
+}
+
