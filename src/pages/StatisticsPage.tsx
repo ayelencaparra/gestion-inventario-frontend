@@ -65,7 +65,7 @@ export function PieChartVentas({ data }: data) {
             outerRadius={200}
             label={({ name, percent }) => `${name} (${(((percent ? percent : 0)) * 100).toFixed(1)}%)`}
           >
-            {data.map((entry, index) => (
+            {data.map((_entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
@@ -157,6 +157,7 @@ export function StatisticsPage() {
       setVentasFiltradas(filtrarVentasPorRango(datos, 1)); // por defecto mostrar el día
       console.log(mensajeExito)
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleFiltroTiempo = (dias: number) => {

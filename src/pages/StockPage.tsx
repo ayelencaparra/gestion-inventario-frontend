@@ -31,6 +31,7 @@ declare module 'jspdf' {
   }
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function calcularTop5PorGanancia(ventas: Venta[], productos: Producto[]): ProductoConGanancia[] {
   const ganancias: { [nombre: string]: ProductoConGanancia } = {};
 
@@ -62,6 +63,7 @@ export function calcularTop5PorGanancia(ventas: Venta[], productos: Producto[]):
     .sort((a, b) => b.gananciaTotal - a.gananciaTotal);
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function obtenerProductosRecomendados(productos: Producto[]): Producto[] {
   const categoriasUsadas = new Set<string>();
   const productosAleatorios: Producto[] = [];
@@ -120,6 +122,7 @@ export function StockPage () {
         setProductosRecomendados(obtenerProductosRecomendados(productos));
         console.log(mensajeExito)
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const totalOrden = useMemo(() => {
 
