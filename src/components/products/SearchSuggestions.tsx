@@ -1,4 +1,5 @@
-import type { Producto } from "../../Service/apilogin";
+import type { Producto } from "../../Service/apiproducto";
+
 
 type SearchSuggestionsProps = {
   sugerencias: Producto[];

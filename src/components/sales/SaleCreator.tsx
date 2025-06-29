@@ -28,46 +28,45 @@ export function SaleCreator({mensajeDeExito, setMensajeExito, setTrigger2}:SaleC
         [id]: cantidadFinal,
         }));
     };
-    const calcularTotalVenta = (): number => {
-        return productos.reduce((total, p) => {
-            const cantidad = cantidades[p.id] || 0;
-            return total + (cantidad * p.precioVenta);
-        }, 0);
-    };
-
-  const calcularSubtotal = (producto: Producto) => {
-    const cantidad = producto.id && cantidades[producto.id] || 0;
-    return producto.precioVenta && cantidad * producto.precioVenta;
+  const calcularTotalVenta = (): number => {
+      return productos.reduce((total, p) => {
+          const cantidad = cantidades[((p.id)? p.id: 0)] || 0;
+          return total + (cantidad * ((p.precioVenta)? p.precioVenta : 0));
+      }, 0);
   };
 
-  const handleCrearVenta = async () => {
-    const detalles= productos
-      .filter(p => p.id && cantidades[p.id] > 0)
-      .map(p => ({
-        productoNombre: p.nombre,
-        categoriaNombre: p.categoria.nombre,
-        cantidad: p.id && cantidades[p.id],
-        precioVenta: p.precioVenta,
-      }));
-
-    if (detalles.length === 0) {
-      alert("Debes seleccionar al menos un producto con cantidad válida.");
-      return;
-    }
-
-    const nuevaVenta: Venta = {
-      id: 0,
-      fecha: new Date().toISOString(),
-      detalles,
+    const calcularSubtotal = (producto: Producto) => {
+      const cantidad = producto.id && cantidades[producto.id] || 0;
+      return producto.precioVenta && cantidad * producto.precioVenta;
     };
+  const handleCrearVenta = async () => {
+  const detalles = productos
+    .filter(p => p.id && cantidades[p.id] > 0)
+    .map(p => ({
+      productoNombre: p.nombre,
+      categoriaNombre: p.categoria.nombre,
+      cantidad: cantidades[p.id ?? 0] ?? 0,
+      precioVenta: p.precioVenta ?? 0,
+    }));
+
+  if (detalles.length === 0) {
+    alert("Debes seleccionar al menos un producto con cantidad válida.");
+    return;
+  }
+
+  const nuevaVenta: Venta = {
+    id: 0,
+    fecha: new Date().toISOString(),
+    detalles,
+  };
 
     try {
       const res = await crearVenta(nuevaVenta);
       console.log(res)
-      setMensajeExito(prev => !prev)
+      setMensajeExito?.(prev => !prev);
       setTrigger(prev => !prev)
       setTrigger2(prev => !prev)
-      setTimeout(() => setMensajeExito(false), 3000);
+      setTimeout(() => setMensajeExito?.(prev => !prev), 3000);
       setCantidades({}); // limpiar cantidades
     } catch (err) {
       console.error(err);

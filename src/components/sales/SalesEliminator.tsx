@@ -17,9 +17,9 @@ export function SalesEliminator ({ventasParaMostrar, handleOnClickDetails, title
 
         try {
             await eliminarVenta(id);
-            setMensajeExito(prev => !prev)
-            setTrigger(prev => !prev)
-            setTimeout(() => setMensajeExito(false), 3000);
+            setMensajeExito?.(prev => !prev)
+            setTrigger?.(prev => !prev)
+            setTimeout(() => setMensajeExito?.(false), 3000);
         } catch (error) {
             console.error(error);
             alert("Error al eliminar la venta.");
