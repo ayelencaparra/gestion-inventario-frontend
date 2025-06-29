@@ -39,7 +39,7 @@ export function calcularTop5PorGanancia(ventas: Venta[], productos: Producto[]):
       const producto = productos.find(p => p.nombre === detalle.productoNombre);
       if (!producto) continue;
 
-      const gananciaUnit = detalle.precioVenta - producto.precioCompra;
+      const gananciaUnit = detalle.precioVenta - ((producto.precioCompra )?(producto.precioCompra):( 0));
       const gananciaTotal = gananciaUnit * detalle.cantidad;
 
       if (!ganancias[detalle.productoNombre]) {
@@ -83,7 +83,7 @@ export function obtenerProductosRecomendados(productos: Producto[]): Producto[] 
 }
 
 export function StockPage () {
-    const [seccionActiva, setSeccionActiva] = useState<"listar" | "crear">("listar")
+    const [seccionActiva, setSeccionActiva] = useState<"listar" | "crear"| null>("listar")
     const [mensajeExito, setMensajeExito] = useState<boolean>(false)
     const [productos, setProductos] = useState<Producto[]>([]);
     const [mostrarTodoStock, setMostrarTodoStock] = useState<boolean>(false)
@@ -113,18 +113,19 @@ export function StockPage () {
         setProductos(productos);
 
         const top5 = calcularTop5PorGanancia(ventas, productos);
-        const pfitrados = productos.filter(p => p.cantidad < 10)
+        const pfitrados = productos.filter(p => ((p.cantidad)?p.cantidad:0) < 10)
         
         setTop5Ingresos(top5);
         setProductosBajoStock(pfitrados)
         setProductosRecomendados(obtenerProductosRecomendados(productos));
+        console.log(mensajeExito)
     });
     }, []);
     const totalOrden = useMemo(() => {
 
         return productos.reduce((total, producto) => {
-            const cantidad = cantidadesOrden[producto.id] || 0;
-            return total + cantidad * producto.precioCompra;
+            const cantidad = cantidadesOrden[((producto.id)?producto.id:0)] || 0;
+            return total + cantidad * ((producto.precioCompra)?producto.precioCompra:0);
         }, 0);
         
     }, [cantidadesOrden, productos]);
@@ -133,16 +134,17 @@ export function StockPage () {
         try {
             const actualizados = await Promise.all(
             productos.map(async (producto) => {
-                const cantidadAgregar = cantidadesOrden[producto.id] || 0;
+                const cantidadAgregar = cantidadesOrden[((producto.id)?producto.id:0)] || 0;
                 if (cantidadAgregar > 0) {
                 const productoActualizado = {
                     ...producto,
-                    cantidad: producto.cantidad + cantidadAgregar,
+                    cantidad: ((producto.cantidad)?producto.cantidad:0) + cantidadAgregar,
                 };
                 return await updateProducto(productoActualizado);
                 }
             })
             );
+            console.log(actualizados)
 
             alert("Orden de compra realizada con éxito ✅");
             // Refrescamos la lista de productos
@@ -171,21 +173,21 @@ export function StockPage () {
     // Encabezados y datos
     const columns = ["ID", "Nombre", "Categoría", "Cantidad actual", "Precio de compra", "Cantidad a ordenar", "Subtotal"];
     const rows = productos
-        .filter(p => cantidadesOrden[p.id] > 0)
+        .filter(p => cantidadesOrden[p.id ?? 0] > 0)
         .map(p => [
-        p.id,
-        p.nombre,
-        p.categoria.nombre,
-        p.cantidad,
-        p.precioCompra,
-        cantidadesOrden[p.id],
-        cantidadesOrden[p.id] * p.precioCompra
+            p.id ?? "",                                   // nunca undefined
+            p.nombre ?? "",                               // string
+            p.categoria?.nombre ?? "",                    // string
+            p.cantidad ?? 0,                              // number
+            p.precioCompra ?? 0,                          // number
+            cantidadesOrden[p.id ?? 0] ?? 0,              // number
+            (cantidadesOrden[p.id ?? 0] ?? 0) * (p.precioCompra ?? 0), // number
         ]);
 
     autoTable(doc, {
         startY: 50,
         head: [columns],
-        body: rows,
+        body: rows.length > 0 ? rows : [["Sin datos", "", "", "", "", "", ""]],
     });
 
     const yFinal = doc.lastAutoTable.finalY || 60;
@@ -302,7 +304,7 @@ export function StockPage () {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {productos.sort((a, b) => a.cantidad - b.cantidad).map((producto:Producto, index:number) => (
+                                    {productos.sort((a, b) => ((a.cantidad)? a.cantidad : 0) - ((b.cantidad) ? b.cantidad: 0)).map((producto:Producto, index:number) => (
                                     <tr key={index}>
                                         <td style={{ textAlign: "center" }}>{index + 1}</td>
                                         <td>{producto.nombre}</td>
@@ -314,11 +316,11 @@ export function StockPage () {
                                             <input
                                                 type="number"
                                                 min={0}
-                                                value={cantidadesOrden[producto.id] || ""}
+                                                value={cantidadesOrden[((producto.id)? (producto.id): 0)] || ""}
                                                 onChange={(e) =>
                                                     setCantidadesOrden({
                                                     ...cantidadesOrden,
-                                                    [producto.id]: Number(e.target.value),
+                                                    [((producto.id)? (producto.id): 0)]: Number(e.target.value),
                                                     })
                                                 }
                                                 style={{ width: "60px", height:"50px",  borderRadius:"5px", border:"solid 2px", background:"white", margin:"0" , padding:"0", textAlign:"center"}}

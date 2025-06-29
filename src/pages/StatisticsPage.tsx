@@ -7,7 +7,11 @@ import { Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, ResponsiveCo
 import "./StatisticsPage.css"
 
 const COLORS = ['#0197CF', '#4CAF50', '#FFBB28', '#FF8042', '#8884d8', '#00C49F', '#FF6384', '#FFCD56', '#36A2EB', '#8E44AD'];
-
+type ProductoAgrupado = {
+  cantidad: number,
+  total: number,
+  id:number
+}
 interface data {
   data: ProductoAgrupado[];
 }
@@ -34,6 +38,11 @@ function agruparVentasPorProducto(ventas: Venta[]) {
     .sort((a, b) => b.cantidad - a.cantidad);
 }
 
+interface data {
+  data: ProductoAgrupado[];
+}
+
+
 function filtrarVentasPorRango(ventas: Venta[], dias: number) {
   const ahora = new Date();
   return ventas.filter((venta) => {
@@ -54,14 +63,14 @@ export function PieChartVentas({ data }: data) {
             cx="50%"
             cy="50%"
             outerRadius={200}
-            label={({ name, percent }) => `${name} (${(percent * 100).toFixed(1)}%)`}
+            label={({ name, percent }) => `${name} (${(((percent ? percent : 0)) * 100).toFixed(1)}%)`}
           >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
           <Tooltip
-            formatter={(value: number, name: string) => [`${value} unidades`, "Cantidad vendida"]}
+            formatter={(value: number) => [`${value} unidades`, "Cantidad vendida"]}
           />
           <Legend verticalAlign="bottom" height={0} />
         </PieChart>
@@ -70,7 +79,7 @@ export function PieChartVentas({ data }: data) {
   );
 }
 
-export function BarChartCantidadVendida({ data }: Props) {
+export function BarChartCantidadVendida({ data }: data) {
   const top10 = [...data]
     .sort((a, b) => b.cantidad - a.cantidad)
     .slice(0, 10);
@@ -86,7 +95,7 @@ export function BarChartCantidadVendida({ data }: Props) {
           <XAxis dataKey="nombre" tick={{ fontSize: 12, fill: "white" }} />
           <YAxis tick={{ fill: "white" }} />
           <Tooltip
-            formatter={(value: number, name: string) => [
+            formatter={(value: number) => [
               `${value} unidades`,
               "Cantidad vendida",
             ]}
@@ -118,7 +127,7 @@ export function BarChartVentas({ data }: data) {
           <XAxis dataKey="nombre" tick={{ fontSize: 12, fill: "white" }} />
           <YAxis tick={{ fill: "white" }} />
           <Tooltip
-            formatter={(value: number, name: string) => [
+            formatter={(value: number) => [
               `$${value.toLocaleString()}`,
               "Total generado ($)",
             ]}
@@ -146,6 +155,7 @@ export function StatisticsPage() {
     listarVentas().then((datos) => {
       setVentas(datos);
       setVentasFiltradas(filtrarVentasPorRango(datos, 1)); // por defecto mostrar el día
+      console.log(mensajeExito)
     });
   }, []);
 

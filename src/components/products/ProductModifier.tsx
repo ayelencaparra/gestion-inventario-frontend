@@ -1,10 +1,13 @@
-import type { Producto } from "../../Service/apilogin";
+import type { Categoria } from "../../Service/apicategorias";
+import type { Producto } from "../../Service/apiproducto";
 import { CategorySelector } from "../CategorySelector";
 
 type ProductModifier = {
     handleModificarProducto:(e: React.FormEvent<HTMLFormElement>) => void;
     producto:Producto;
     handleChange:(e: React.ChangeEvent<HTMLInputElement>) => void;
+    categorias:Categoria[];
+    setProducto:React.Dispatch<React.SetStateAction<Producto>>
 }
 
 export function ProductModifier ({categorias, setProducto, handleModificarProducto, producto, handleChange}: ProductModifier){

@@ -1,5 +1,5 @@
 type SubIndexStock ={
-    setSeccionActiva: React.Dispatch<React.SetStateAction<"listar" | "crear">>;
+    setSeccionActiva: React.Dispatch<React.SetStateAction<"listar" | "crear"| null>>;
     seccionActiva:string|null;
     handleClean: () => void;
     handleImageClick:() => void;

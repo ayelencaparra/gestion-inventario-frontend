@@ -29,6 +29,11 @@ function obtenerUltimas5VentasPorFecha(ventas: Venta[]) {
   return ordenadas.slice(0, 5);
 }
 
+type ProductoAgrupado = {
+  cantidad: number,
+  total: number,
+  id:number
+}
 interface data {
   data: ProductoAgrupado[];
 }
@@ -57,7 +62,7 @@ function agruparVentasPorProducto(ventas: Venta[]) {
 
 function obtenerUltimos5Productos(productos: Producto[]) {
   return [...productos]
-    .sort((a, b) => b.id - a.id)
+    .sort((a, b) => ((b.id)?b.id:0) - ((a.id? a.id: 0)))
     .slice(0, 5);
 }
 
@@ -85,7 +90,7 @@ function BarChartVentas({ data }: data) {
             <XAxis dataKey="nombre" tick={{ fontSize: 12, fill: "white" }} />
             <YAxis tick={{ fill: "white" }} />
             <Tooltip
-                formatter={(value: number, name: string) => [
+                formatter={(value: number) => [
                 `$${value.toLocaleString()}`,
                 "Total generado ($)",
                 ]}

@@ -1,4 +1,6 @@
-import type { Categoria, Producto } from "../Service/apilogin";
+import type { Categoria } from "../Service/apicategorias";
+import type { Producto } from "../Service/apiproducto";
+
 
 type CategorySelector ={
     producto:Producto;
