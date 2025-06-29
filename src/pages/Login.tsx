@@ -58,7 +58,7 @@ export function Login() {
       </div>
       <div className="container-img-login">
         <img
-          src="public/pexels-artempodrez-5716034.jpg"
+          src="/pexels-artempodrez-5716034.jpg"
           alt="Imagen de mujer trabajando con estadísticas y datos"
           id="img-login"
         />
