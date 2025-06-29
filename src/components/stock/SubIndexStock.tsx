@@ -35,7 +35,7 @@ export function SubIndexStock ({setSeccionActiva, handleClean, setMensajeExito, 
                     Crear orden de <br />compra</li> 
             </ul>
             <img 
-            src="src/img/image 1.png" 
+            src="/public/image 1.png" 
             alt="Imagen de un botón off"
             onClick={handleImageClick}
             />

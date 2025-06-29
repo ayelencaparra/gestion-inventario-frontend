@@ -34,7 +34,7 @@ export function SubIndexCategories ({setSeccionActiva, seccionActiva, handleClea
                             Crear</li>
                     </ul>
                     <img 
-                    src="src/img/image 1.png" 
+                    src="/public/image 1.png" 
                     alt="Imagen de un botón off"
                     onClick={handleImageClick}
                     />
