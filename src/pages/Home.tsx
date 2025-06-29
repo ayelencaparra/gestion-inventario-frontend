@@ -169,7 +169,7 @@ const [productos, setProductos] = useState<Producto[]>([]);
                         ))}
                     </ul>
                     <img 
-                    src="src/img/image 1.png" 
+                    src="/image 1.png" 
                     alt="Imagen de un botón off"
                     onClick={handleImageClick}
                     />

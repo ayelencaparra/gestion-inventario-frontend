@@ -20,14 +20,9 @@
     border-right: solid 1px black;
 }
 .container-subindex-stockpage img{
-     position: absolute;
-    right: 20px;
-    top: 30px;
-    background-color: white;
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    margin: 0;
+     height: 60px;
+    width: 60px;
+    margin-bottom: 50px;
 }
 .container-subindex-stockpage img:hover{
     height: 70px;
@@ -297,4 +292,14 @@
     .container-section-stockpage{
         flex-direction: column;
     }
+    .container-subindex-stockpage img{
+     position: absolute;
+    right: 20px;
+    top: 30px;
+    background-color: white;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin: 0;
+}
 }
